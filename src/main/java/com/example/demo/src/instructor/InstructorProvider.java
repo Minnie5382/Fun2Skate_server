@@ -2,6 +2,7 @@ package com.example.demo.src.instructor;
 
 
 import com.example.demo.config.BaseException;
+import com.example.demo.src.email.model.PostMailReq;
 import com.example.demo.src.instructor.InstructorDao;
 import com.example.demo.src.instructor.model.*;
 import com.example.demo.utils.JwtService;
@@ -58,5 +59,6 @@ public class InstructorProvider {
             throw new BaseException(DATABASE_ERROR);
         }
     }
+
 
 }

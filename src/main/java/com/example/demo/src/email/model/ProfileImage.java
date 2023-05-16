@@ -1,4 +1,4 @@
-package com.example.demo.src.user.model;
+package com.example.demo.src.email.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostUserRes {
-    private String jwt;
-    private int userIdx;
+public class ProfileImage {
+    private Object profileImg;
+
+
+
 }

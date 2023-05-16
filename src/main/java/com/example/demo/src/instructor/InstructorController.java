@@ -2,6 +2,7 @@ package com.example.demo.src.instructor;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
+import com.example.demo.src.email.model.PostMailReq;
 import com.example.demo.src.instructor.InstructorProvider;
 import com.example.demo.src.instructor.InstructorService;
 import com.example.demo.src.instructor.model.*;
@@ -12,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.*;
@@ -69,20 +72,5 @@ public class InstructorController {
             return new BaseResponse<>((exception.getStatus()));
         }
     }
-
-    /*
-    @ResponseBody
-    @GetMapping("/{region}")
-    public BaseResponse<List<GetRegionInstrsRes>> getRegionInstrs (@PathVariable("region") String region) {
-        try {
-            List<GetRegionInstrsRes> getRegionInstructorsRes= instructorProvider.getRegionInstructors(region);
-            return new BaseResponse<>(getRegionInstructorsRes);
-
-        } catch (BaseException exception) {
-            return new BaseResponse<>((exception.getStatus()));
-        }
-    }
-    */
-
 
 }
