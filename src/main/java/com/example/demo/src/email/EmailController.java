@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Objects;
 
+
 @RestController
 @RequestMapping("")
 public class EmailController {
@@ -37,6 +38,7 @@ public class EmailController {
      * @param postMailReq
      * @return String
      */
+
     @ResponseBody
     @PostMapping("/email")
     public BaseResponse<String> sendEmail (@ModelAttribute PostMailReq postMailReq){
@@ -56,6 +58,7 @@ public class EmailController {
      * @param postInstructorReq
      * @return String
      */
+
     @ResponseBody
     @PostMapping("/instructors/apply")
     public BaseResponse<String> postInstructor (@ModelAttribute PostInstructorReq postInstructorReq){

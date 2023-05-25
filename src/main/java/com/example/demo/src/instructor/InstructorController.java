@@ -61,6 +61,7 @@ public class InstructorController {
      * @param region
      * @return List<getRegionInstructorsRes>
      */
+
     @ResponseBody
     @GetMapping("/{region}")
     public BaseResponse<List<GetRegionInstrsRes>> getRegionInstrs (@PathVariable("region") String region) {
