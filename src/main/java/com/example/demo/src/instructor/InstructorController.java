@@ -19,7 +19,7 @@ import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.*;
 import static com.example.demo.utils.ValidationRegex.isRegexEmail;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/instructors")
 public class InstructorController {

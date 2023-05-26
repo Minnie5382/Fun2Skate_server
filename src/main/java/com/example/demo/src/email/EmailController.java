@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Objects;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("")
 public class EmailController {
