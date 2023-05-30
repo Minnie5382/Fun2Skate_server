@@ -52,7 +52,7 @@ public class InstructorController {
             List<GetInstructorsRes> getInstructorsRes= instructorProvider.getInstructors();
             return new BaseResponse<>(getInstructorsRes);
         } catch (BaseException exception) {
-            return new BaseResponse<>((exception.getStatus()));
+            return new BaseResponse<>(exception.getStatus());
         }
     }
 
@@ -68,9 +68,8 @@ public class InstructorController {
         try {
             List<GetRegionInstrsRes> getRegionInstructorsRes= instructorProvider.getRegionInstructors(region);
             return new BaseResponse<>(getRegionInstructorsRes);
-
         } catch (BaseException exception) {
-            return new BaseResponse<>((exception.getStatus()));
+            return new BaseResponse<>(exception.getStatus());
         }
     }
 

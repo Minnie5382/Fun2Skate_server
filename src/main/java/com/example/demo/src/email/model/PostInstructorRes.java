@@ -9,9 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProfileImage {
-    private Object profileImg;
-
-
-
+public class PostInstructorRes {
+    private String resultMessage;
 }

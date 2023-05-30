@@ -1,5 +1,6 @@
 package com.example.demo.src.email;
 
+import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.src.email.model.*;
 import com.example.demo.utils.JwtService;
@@ -44,11 +45,9 @@ public class EmailController {
     public BaseResponse<String> sendEmail (@ModelAttribute PostMailReq postMailReq){
         try {
             emailService.sendMail(postMailReq, Integer.parseInt(postMailReq.getInstrIdx()));
-            return new BaseResponse<>("메일 전송이 완료되었습니다");
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
+            return new BaseResponse<>("메일 전송이 완료되었습니다.");
+        } catch (Exception exception) {
+            return new BaseResponse<>(exception.getMessage());
         }
     }
 
@@ -63,17 +62,17 @@ public class EmailController {
     @PostMapping("/instructors/apply")
     public BaseResponse<String> postInstructor (@ModelAttribute PostInstructorReq postInstructorReq){
         MultipartFile profileImage = postInstructorReq.getProfileImg();
-        if (!Objects.requireNonNull(profileImage.getContentType()).startsWith("image")) {
+        if (profileImage.isEmpty()) {
+            logger.warn("profile image is null");
+        } else if (!Objects.requireNonNull(profileImage.getContentType()).startsWith("image")) {
             logger.warn("this file is not image type");
             return new BaseResponse<>(HttpStatus.FORBIDDEN.getReasonPhrase());
         }
         try {
             emailService.sendApplyEmail(postInstructorReq, profileImage);
-            return new BaseResponse<>("강사 등록 요청이 완료되었습니다.");
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            return new BaseResponse<>("메일 전송이 완료되었습니다.");
+        } catch (Exception exception) {
+            return new BaseResponse<>(exception.getMessage());
         }
     }
 

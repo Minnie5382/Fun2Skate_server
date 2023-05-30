@@ -13,12 +13,12 @@ import org.springframework.web.multipart.MultipartFile;
 public class PostInstructorReq {
     // 이름, 이메일주소, 경력, 소개, 프로필 사진 경로, List<지역>
     private String name;
-    private String email;
-    private int experience;
+    private String experience;
     private String introducing;
-    private MultipartFile profileImg;
-    private String kakaoId;
     private String regions;
+    private String kakaoId;
+    private String email;
+    private MultipartFile profileImg;
 
 
 }
